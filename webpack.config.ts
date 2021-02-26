@@ -57,6 +57,11 @@ const config: Configuration = {
     new HotModuleReplacementPlugin(),
     new ReactRefreshWebpackPlugin(),
   ],
+  devServer: {
+    port: 3090,
+    publicPath: '/dist/', // 브라우저 주소 기준 접근 가능한 경로
+    overlay: false,
+  },
 };
 
 export default config;

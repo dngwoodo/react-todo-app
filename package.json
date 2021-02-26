@@ -4,6 +4,7 @@
   "description": "- [ ] 간단한 React + Typescript 사용법 - [ ] 간단한 Webpack 사용법 - [ ] Redux 사용법 - [ ] Redux Toolkit 사용법 - [ ] 간단한 Jest 사용법",
   "main": "index.js",
   "scripts": {
+    "dev": "TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack serve --env development --progress",
     "build": "TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack"
   },
   "repository": {

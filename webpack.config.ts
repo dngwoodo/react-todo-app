@@ -7,7 +7,10 @@ const config: wepback.Configuration = {
   mode: 'development',
   devtool: 'eval',
   entry: {
-    app: 'client',
+    app: './client',
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
   },
   module: {
     rules: [
@@ -38,7 +41,7 @@ const config: wepback.Configuration = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name.js]',
+    filename: '[name].js',
     publicPath: '/dist/',
   },
   plugins: [

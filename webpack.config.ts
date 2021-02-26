@@ -1,8 +1,9 @@
-import wepback from 'webpack';
+import { Configuration, HotModuleReplacementPlugin } from 'webpack';
 import path from 'path';
-import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'; // ts checking과 webpack을 동시에 실행시켜준다. 원래는 ts checking이 blocking형태(다음 동작을 막는 형태)로 돌아간다.
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
-const config: wepback.Configuration = {
+const config: Configuration = {
   name: 'todo',
   mode: 'development',
   devtool: 'eval',
@@ -29,6 +30,11 @@ const config: wepback.Configuration = {
           '@babel/preset-react',
           '@babel/preset-typescript',
           ],
+          env: {
+            development: {
+              plugins: [require.resolve('react-refresh/babel')], // require.resolve를 사용하면 모듈 전체가 아닌 해당 파일만 가져온다.
+            },
+          },
         },
         exclude: path.join(__dirname, 'node_modules'),
       },
@@ -45,7 +51,11 @@ const config: wepback.Configuration = {
     publicPath: '/dist/',
   },
   plugins: [
-    new ForkTsCheckerWebpackPlugin(),
+    new ForkTsCheckerWebpackPlugin({
+      async: false,
+    }),
+    new HotModuleReplacementPlugin(),
+    new ReactRefreshWebpackPlugin(),
   ],
 };
 

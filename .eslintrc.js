@@ -20,6 +20,7 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    'no-shadow': 'off',
     'react/jsx-filename-extension': 'off',
     'no-use-before-define': 'off',
     'import/no-unresolved': 'off',

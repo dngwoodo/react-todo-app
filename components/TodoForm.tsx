@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { todosActions } from '../slices/todosSlice';
-import { useAppDispatch } from '../store/configureStore';
+import useTodoActions from '../hooks/useTodoAction';
 
 const TodoForm = () => {
   const [text, setText] = useState('');
-  const dispatch = useAppDispatch();
+  const { add } = useTodoActions();
   return (
     <form onSubmit={
       (e) => {
         e.preventDefault();
-        dispatch(todosActions.add(text));
+        add(text);
         setText('');
       }
     }

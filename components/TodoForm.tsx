@@ -12,6 +12,7 @@ const TodoForm = () => {
     setText(e.target.value);
   }, [text]); // text를 안넣어주면 리랜더링 시 값을 참조할때 최신값을 받아온다고 보장할 수 없음
 
+  // eslint-disable-next-line no-unused-vars
   const [_, { add }] = useTodos();
 
   return (

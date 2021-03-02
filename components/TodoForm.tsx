@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import useTodoActions from '../hooks/useTodoActions';
+import useTodos from '../hooks/useTodos';
 
 const TodoForm = () => {
   // useState라는 hooks를 이용하면 리랜더링 될때 값들이 초기화되지 않고 예전 값들을 메모리에 올려두고 재사용한다.
@@ -12,7 +12,7 @@ const TodoForm = () => {
     setText(e.target.value);
   }, [text]); // text를 안넣어주면 리랜더링 시 값을 참조할때 최신값을 받아온다고 보장할 수 없음
 
-  const { add } = useTodoActions();
+  const [_, { add }] = useTodos();
 
   return (
     <form onSubmit={

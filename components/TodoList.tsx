@@ -2,7 +2,7 @@ import React from 'react';
 import useTodos from '../hooks/useTodos';
 
 const TodoList = () => {
-  const todos = useTodos();
+  const [todos] = useTodos();
   return (
     <ul>
       {todos.map((todo) => (

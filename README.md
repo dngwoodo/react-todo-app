@@ -1,9 +1,9 @@
 #### 알게 되는 것
 
-- [ ] 간단한 React + Typescript 사용법
-- [ ] 간단한 Webpack 사용법
-- [ ] Redux 사용법
-- [ ] Redux Toolkit 사용법
+- [x] 간단한 React + Typescript 사용법
+- [x] 간단한 Webpack 사용법
+- [x] Redux 사용법
+- [x] Redux Toolkit 사용법
 - [ ] 간단한 Jest 사용법
 
 #### Resource

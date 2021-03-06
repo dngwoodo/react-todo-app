@@ -1,4 +1,5 @@
 import React from 'react';
+import useFilter from '../hooks/useFilter';
 import { Filter } from '../types/Filter';
 
 type Filters = {text: string, filter: Filter}[] // 굳이 안해도 되지만 filter 자동완성을 위해서 사용
@@ -9,17 +10,23 @@ const filters: Filters = [
   { text: '미완료', filter: 'UNDONE' },
 ];
 
-const TodoFilters = () => (
-  <div>
-    {filters.map(({ text, filter }) => (
-      <button
-        type="button"
-        key={filter}
-      >
-        {text}
-      </button>
-    ))}
-  </div>
-);
+const TodoFilters = () => {
+  const [filter, { applyFilter }] = useFilter();
+
+  return (
+    <div>
+      {filters.map((f) => (
+        <button
+          type="button"
+          key={f.filter}
+          disabled={filter === f.filter}
+          onClick={() => applyFilter(f.filter)}
+        >
+          {f.text}
+        </button>
+      ))}
+    </div>
+  );
+};
 
 export default TodoFilters;

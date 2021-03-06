@@ -1,8 +1,9 @@
 import React, { useCallback } from 'react';
-import useTodos from '../hooks/useTodos';
+import useFilteredTodos from '../hooks/userFilteredTodos';
 
 const TodoList = () => {
-  const [todos, { remove, toggle }] = useTodos();
+  // eslint-disable-next-line max-len
+  const [todos, { remove, toggle }] = useFilteredTodos(); // 이 아이는 filter나 todos가 바뀌면 알아서 바뀜. 그러면서 react-redux가 컴포넌트 리랜더링 시킴
   const onToggle = useCallback((id: string) => {
     toggle(id);
   }, []);

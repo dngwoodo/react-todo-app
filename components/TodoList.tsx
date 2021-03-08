@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import useFilteredTodos from '../hooks/userFilteredTodos';
+import useFilteredTodos from '../hooks/useFilteredTodos';
 
 const TodoList = () => {
   // eslint-disable-next-line max-len
